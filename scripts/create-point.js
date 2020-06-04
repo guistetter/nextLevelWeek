@@ -13,19 +13,22 @@ function populateUfs() {
 populateUfs();
 
 function getCities(event) {
-  const citySelect = document.querySelector("select[name=city]");
-  const stateinput = document.querySelector("input[name=state]");
-
   const ufValue = event.target.value;
-  const indexOfSelectedState = event.target.selectedIndex;
-  stateinput.value = event.target.options[indexOfSelectedState].text;
   const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufValue}/municipios`;
 
+  const citySelect = document.querySelector("select[name=city]");
+  const stateInput = document.querySelector("input[name=state]");
+
+  const indexOfSelectedState = event.target.selectedIndex;
+  stateInput.value = event.target.options[indexOfSelectedState].text;
+  //fix bug ao mudar estado não muda a cidade, basta limpar lista de cidades antes de fazer o fecth e add novas..
+  citySelect.innerHTML = "<option value> Selecione a Cidade</options>";
+  citySelect.disable = true;
   fetch(url)
     .then((res) => res.json())
     .then((cities) => {
       for (city of cities) {
-        citySelect.innerHTML += `<option value="${city.id}"> ${city.nome} </option>`;
+        citySelect.innerHTML += `<option value="${city.nome}"> ${city.nome} </option>`;
       }
 
       citySelect.disabled = false;
