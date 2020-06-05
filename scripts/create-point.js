@@ -36,3 +36,41 @@ function getCities(event) {
 }
 
 document.querySelector("select[name=uf]").addEventListener("change", getCities);
+
+//itens Coletados
+const itensToCollect = document.querySelectorAll(".itens-grid li");
+for (const item of itensToCollect) {
+  item.addEventListener("click", handleSelectedItem);
+}
+
+const collectedItens = document.querySelector("input[name=itens]");
+//pega o campo escondito
+
+let selectedItens = [];
+function handleSelectedItem(event) {
+  const itemLi = event.target;
+
+  //add or remove class with js
+  itemLi.classList.toggle("selected");
+
+  const itemId = itemLi.dataset.id;
+  //verificar se existem itens selecionados se sim pegar os itens selecionados
+  const alreadySelected = selectedItens.findIndex((item) => {
+    return item == itemId;
+  });
+  //se já estiver selecionado, tirar selecao
+  if (alreadySelected >= 0) {
+    //tirar da selecao
+    const filteredItens = selectedItens.filter((item) => {
+      const itemIsDifferent = item != itemId;
+      return itemIsDifferent;
+    });
+    selectedItens = filteredItens;
+  } else {
+    //se nao estiver selecionado add a selecao
+    selectedItens.push(itemId);
+  }
+
+  //atualizar o campo escondido com os intes selecionados
+  collectedItens.value = selectedItens;
+}

@@ -17,7 +17,7 @@
     <div id="page-create-point">
       <header>
         <img src="/assets/icones/logo.svg" alt="Logotipo Ecoleta" />
-        <a href="http://google.com.br"> <span></span>Voltar para home </a>
+        <a href="./index.html"> <span></span>Voltar para home </a>
       </header>
 
       <form action="">
@@ -59,6 +59,42 @@
               </select>
             </div>
           </div>
+        </fieldset>
+        <fieldset>
+          <legend><h2>Itens de coleta</h2></legend>
+          <div class="itens-grid">
+            <li data-id="1">
+              <img src="assets/icones/lampadas.svg" alt="Lampadas" />
+              <span>Lampadas</span>
+            </li>
+            <li data-id="2">
+              <img src="assets/icones/baterias.svg" alt="Pilhas e baterias" />
+              <span>Pilhas e baterias</span>
+            </li>
+            <li data-id="3">
+              <img
+                src="assets/icones/papeis-papelao.svg"
+                alt="Papeis e papelão"
+              />
+              <span>Papeis e papelão</span>
+            </li>
+            <li data-id="4">
+              <img
+                src="assets/icones/eletronicos.svg"
+                alt="Residuos eletronicos"
+              />
+              <span>Residuos Eletronicos</span>
+            </li>
+            <li data-id="5">
+              <img src="assets/icones/organicos.svg" alt="Residuos Organicos" />
+              <span>Residuos Organicos</span>
+            </li>
+            <li data-id="6">
+              <img src="assets/icones/oleo.svg" alt="Oleo de cozinha" />
+              <span>Oleo de cozinha</span>
+            </li>
+          </div>
+          <input type="hidden" name="itens" />
         </fieldset>
 
         <button type="submit">Cadastrar ponto de coleta</button>

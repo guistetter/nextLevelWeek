@@ -93,3 +93,37 @@ form button:hover {
   height: 62px;
   font-size: 18px;
 }
+
+.itens-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 25px;
+}
+.itens-grid li {
+  background-color: #f0f0f5;
+  list-style: none;
+  border: 2px solid #f0f0f5;
+  border-radius: 8px;
+  height: 180px;
+  padding: 32px 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  cursor: pointer;
+}
+.itens-grid li span {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  color: var(--title-color);
+}
+.itens-grid li.selected {
+  background: #e1faec;
+  border: 2px solid #34cb79;
+}
+.itens-grid li img,
+.itens-grid li span {
+  pointer-events: none;
+}
