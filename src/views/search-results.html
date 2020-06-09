@@ -1,47 +1,42 @@
-<!DOCTYPE html>
-<html lang="pt_br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,700;1,500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./styles/main.css" />
-    <link rel="stylesheet" href="./styles/search-results.css" />
-    <link rel="stylesheet" href="./styles/responsive.css" />
-    <title>Resultado da pesquisa</title>
-  </head>
+{% extends "layout.html" %}
+{% set pageId = "page-search-results" %}
+{%block title%}
+  <title>Resultado da pesquisa</title>
+{%endblock title%}
 
-  <body>
-    <div id="page-search-results">
-      {%include "partials/page-header.html"%}
+{%block styles%}
+  <link rel="stylesheet" href="./styles/search-results.css"/>
+{%endblock styles%}
 
-      <main>
-        <h4><strong> 2 pontos </strong>encontrados</h4>
-        <div class="cards">
-          <div class="card">
-            <img src="./assets/recycle.jpg" alt="Colectoria" srcset="" />
+{% block content %}
+  {%include "partials/page-header.html"%}
 
-            <h1>Colectoria</h1>
-            <h3>Residuos eletronicos, Lampadas</h3>
-            <p>
-              Rio do Sul, Santa Catarina<br />
-              Guilherme Gemballa, Jardim America nº 260
-            </p>
-          </div>
-          <div class="card">
-            <img src="./assets/recyle2.jpg" alt="Papersider" srcset="" />
+  <main>
+    <h4>
+      <strong>
+        2 pontos
+      </strong>encontrados</h4>
+    <div class="cards">
+      <div class="card">
+        <img src="./assets/recycle.jpg" alt="Colectoria" srcset=""/>
 
-            <h1>Papersider</h1>
-            <h3>Papeis e Papelao</h3>
-            <p>
-              Rio do Sul, Santa Catarina<br />
-              Guilherme Gemballa, Jardim America nº 260
-            </p>
-          </div>
-        </div>
-      </main>
+        <h1>Colectoria</h1>
+        <h3>Residuos eletronicos, Lampadas</h3>
+        <p>
+          Rio do Sul, Santa Catarina<br/>
+          Guilherme Gemballa, Jardim America nº 260
+        </p>
+      </div>
+      <div class="card">
+        <img src="./assets/recyle2.jpg" alt="Papersider" srcset=""/>
+
+        <h1>Papersider</h1>
+        <h3>Papeis e Papelao</h3>
+        <p>
+          Rio do Sul, Santa Catarina<br/>
+          Guilherme Gemballa, Jardim America nº 260
+        </p>
+      </div>
     </div>
-  </body>
-</html>
+  </main>
+{% endblock content %}
