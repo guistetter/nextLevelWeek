@@ -1,6 +1,6 @@
 import express from "express";
 import nunjucks from "nunjucks";
-
+import db from "./database/db";
 const server = express();
 server.use(express.static("public"));
 
@@ -16,7 +16,14 @@ server.get("/create-point", (req, res) => {
   return res.render("create-point.html");
 });
 server.get("/search", (req, res) => {
-  return res.render("search-results.html");
+  db.all(`SELECT * FROM places`, function (err, rows) {
+    if (err) {
+      return console.log(err);
+    }
+    const total = rows.length;
+
+    return res.render("search-results.html", { places: rows, total: total });
+  });
 });
 
 server.listen(3000);
