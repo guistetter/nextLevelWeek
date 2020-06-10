@@ -44,7 +44,8 @@ server.post("/savepoint", (req, res) => {
   ];
   function afterInsertData(err) {
     if (err) {
-      return console.log(err);
+      console.log(err);
+      return res.send("erro no cadastro");
     }
     console.log("cadastrado com sucesso");
     console.log(this);
@@ -57,6 +58,7 @@ server.post("/savepoint", (req, res) => {
 server.get("/search", (req, res) => {
   db.all(`SELECT * FROM places`, function (err, rows) {
     if (err) {
+      console.log;
       return console.log(err);
     }
     const total = rows.length;
